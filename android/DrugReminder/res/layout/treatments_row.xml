@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TableRow
+	  xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:stretchColumns="*"
+      android:layout_margin="1dp"
+      >
+
+	<TextView
+		android:id="@+id/treatment_row_medicament_name" 
+		android:padding="3dip"
+		android:maxLines="1"
+		android:maxWidth="100dip" 
+		/>
+	<TextView
+		android:id="@+id/treatment_row_treatment_frequency"
+		android:padding="3dip"
+		android:maxLines="1"
+		android:maxWidth="100dip" 
+		 />
+	<TextView
+		android:id="@+id/treatment_row_pills_to_take"
+		android:padding="3dip"
+		android:maxLines="1"
+		android:maxWidth="100dip" 
+	/>
+		 
+	<CheckBox
+		android:id="@+id/treatment_row_active" 
+		android:padding="3dip"
+		android:maxLines="1" 
+		/>
+</TableRow>

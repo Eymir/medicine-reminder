@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Main!</string>
+    <string name="app_name">DrugReminder</string>
+    
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="deactivate">Deactivate</string>
+    
+    <string name="main_add_treatment">Add new treatment</string>
+    <string name="main_add_treatment_desc">You can add new medicaments to remind</string>
+    <string name="main_drugs_you_take">Drugs you currently take</string>
+    <string name="main_drugs_you_take_desc">You can display here all drugs you recently take</string>
+    <string name="main_about_drugs">Drugs Information</string>
+    <string name="main_about_drugs_desc">Brief information about drugs you take. Its relations and consequences</string>
+    <string name="main_history">Drugs history</string>
+    <string name="main_history_desc">Show all history of drugs taken</string>
+	<string name="main_fetch_web_data">Download treatments</string>
+	<string name="main_fetch_web_data_desc">You can download treatments from Internet immediately</string>
+    <string name="main_treatment_added">Treatment correctly added</string>
+    <string name="main_userid">Input user id</string>
+    <string name="main_userid_desc">Input identifier of user for web service</string>
+    <string name="main_your_userid">Your user id is:</string>
+
+	<string name="dialog_remind_title">Take a medicine </string>
+	
+	<string name="notify_title">Take a medicine!</string>
+	<string name="notify_text">It is proper time you should take a medicine.</string>
+	
+	<string name="new_treatment_select_start_date">Select beginning date:</string>
+	<string name="new_treatment_select_end_date">Select end date:</string>
+	<string name="new_treatment_change_date_btn">Change date</string>
+	<string name="new_treatment_submit">Submit</string>
+	<string name="new_treatment_input_medicament_name_label">Write medicine name:</string>
+	<string name="new_treatment_select_frequency">Select frequency:</string>
+	<string name="new_treatment_insert_pills_num_label">Insert number of pills to take:</string>
+	
+	<string name="add_new_treatment_activity_label">Add treatment</string>
+	<string name="add_new_treatment_date_in_past">You cannot choose past date</string>
+	
+	<string name="show_curr_drugs_activity_label">Show current drugs</string>
+	
+	<string name="frequency_once_daily">Once daily</string>
+	<string name="frequency_twice_daily">Twice daily</string>
+	<string name="frequency_tree_times_daily">Tree times a day</string>
+	<string name="frequency_four_times_daily">Four times a day</string>
+	<string name="frequency_every_two_hours">Every two hours</string>
+	<string name="frequency_every_hour">Every hour</string>
+	
+	<string name="confirm_taking_label">Press button below to confirm taking </string>
+	<string name="confirm_taking_next_doze">Next doze in </string>
+	<string name="confirm_taking_confirm_btn">Confirm</string>
+	<string name="confirm_taking_hours">hour(s)</string>
+	<string name="confirm_taking_activity_label">Confirm taking medicine</string>
+	
+	<string name="drugs_list_activity_label">List of Medicaments</string>
+	
+	<string name="drug_description_activity_label">Medicament description</string>
+	
+	<string name="list_no_items">No items</string>
+</resources>

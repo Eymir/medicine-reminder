@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+  	android:layout_width="fill_parent"
+  	android:layout_height="fill_parent">
+  	
+  	<TextView
+  		android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_treatment_input_medicament_name_label"/>
+  	
+  	<EditText
+  		android:id="@+id/new_treatment_medicament"
+  		android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:layout_marginLeft="20dip"
+        android:text="Rutinoscorvit"/>
+  
+  	<TextView
+  		android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_treatment_select_start_date"/>
+  	<LinearLayout android:id="@+id/linearLayout1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:baselineAligned="true" android:layout_marginLeft="20dip">
+  		<Button 
+  			android:layout_height="wrap_content" 
+  			android:id="@+id/new_treatment_change_start_date_btn" 
+  			android:text="" 
+  			android:layout_width="wrap_content" android:layout_weight="1"/>
+  		<Button android:layout_height="wrap_content" android:id="@+id/new_treatment_change_start_time_btn" android:text="" android:layout_width="wrap_content" android:layout_weight="1"></Button>
+  	</LinearLayout>
+  			
+  	<TextView
+  		android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_treatment_insert_pills_num_label"/>
+  	<LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/linearLayout2">
+  		<EditText android:id="@+id/new_treatment_pills_number" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="20" android:layout_marginLeft="20dip" android:numeric="integer"></EditText>
+  	</LinearLayout>
+  	<TextView 
+  		android:layout_width="wrap_content" 
+  		android:layout_height="wrap_content"
+  		android:text="@string/new_treatment_select_frequency"/>
+  	<Spinner 
+  		android:layout_height="wrap_content" 
+  		android:layout_width="fill_parent" 
+  		android:id="@+id/new_treatment_frequency_spinner" android:layout_marginLeft="20dip"/>
+    
+    <Button
+    	android:id="@+id/new_treatment_submit"
+    	android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    	android:text="@string/new_treatment_submit"/>
+    	
+</LinearLayout>
