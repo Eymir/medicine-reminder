@@ -30,7 +30,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 			Bundle bundle = intent.getExtras();
 		    int id = bundle.getInt(TreatmentsDbAdapter.KEY_ROWID);
 		    
-		    Toast.makeText(context, "Alarm Receiver id: " + id, Toast.LENGTH_SHORT).show();
+//		    Toast.makeText(context, "Alarm Receiver id: " + id, Toast.LENGTH_SHORT).show();
 		    
 		    AlarmScheduler.unscheduleTreatment(ctx, id);
 		    if (TreatmentsDbAdapter.getInstance(context).takeAnotherPill(id))
@@ -63,7 +63,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		    nm.notify(COUNTER, notification);
 		    
 		} catch (Exception e) {
-		     Toast.makeText(context, "There was an error somewhere, but we still received an alarm", Toast.LENGTH_SHORT).show();
+//		     Toast.makeText(context, "There was an error somewhere, but we still received an alarm", Toast.LENGTH_SHORT).show();
 		     e.printStackTrace();
 		}
 	}

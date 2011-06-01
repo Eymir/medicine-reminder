@@ -47,7 +47,7 @@ public class PoolingService extends IntentService{
 		super.onCreate();
         // The service is being created
 		mHandler = new Handler();
-		Toast.makeText(getApplicationContext(), "onCreate z PoolingService", Toast.LENGTH_SHORT).show();
+//		Toast.makeText(getApplicationContext(), "onCreate z PoolingService", Toast.LENGTH_SHORT).show();
     }
 
 	@Override
@@ -63,7 +63,7 @@ public class PoolingService extends IntentService{
 		  }
 
 		  public void run(){
-		     Toast.makeText(getApplicationContext(), mText, Toast.LENGTH_SHORT).show();
+//		     Toast.makeText(getApplicationContext(), mText, Toast.LENGTH_SHORT).show();
 		  }
 		}
 

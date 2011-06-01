@@ -130,7 +130,7 @@ public class AddNewTreatment extends Activity{
 				Date date = new Date(_startYear - 1900, _startMonth, _startDay, _startHour, _startMinute);
 				Date curDate = new Date();
 				if (curDate.getTime() > date.getTime()){
-					Toast.makeText(getApplicationContext(), getString(R.string.add_new_treatment_date_in_past), Toast.LENGTH_SHORT).show();
+//					Toast.makeText(getApplicationContext(), getString(R.string.add_new_treatment_date_in_past), Toast.LENGTH_SHORT).show();
 					return;
 				}
 					
@@ -153,7 +153,7 @@ public class AddNewTreatment extends Activity{
 				if (TreatmentsDbAdapter.
 					getInstance(getApplicationContext()).
 						insert(date, pills, 0, freq, (int)medicineId, true, false) != 0)
-					Toast.makeText(getApplicationContext(), getString(R.string.main_treatment_added), Toast.LENGTH_SHORT).show();
+//					Toast.makeText(getApplicationContext(), getString(R.string.main_treatment_added), Toast.LENGTH_SHORT).show();
 				Cursor c = TreatmentsDbAdapter.getInstance(getApplicationContext()).fetchAll();
 				c.moveToLast();
 				Intent data = new Intent();
@@ -193,7 +193,7 @@ public class AddNewTreatment extends Activity{
 	        View view, int pos, long id) {
 	    	
 	    	Map<String, String> map = (Map<String, String>)frequencySpinner.getItemAtPosition(pos);
-	    	Toast.makeText(parent.getContext(), "The selected is " + map.get(FrequenciesDbAdapter.KEY_ROWID), Toast.LENGTH_LONG).show();
+//	    	Toast.makeText(parent.getContext(), "The selected is " + map.get(FrequenciesDbAdapter.KEY_ROWID), Toast.LENGTH_LONG).show();
 	    	_frequencyId = Integer.parseInt(map.get(FrequenciesDbAdapter.KEY_ROWID));
 	     
 	    }

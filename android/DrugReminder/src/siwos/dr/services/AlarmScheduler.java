@@ -44,7 +44,7 @@ public class AlarmScheduler {
 
 		Intent intent = new Intent(ctx, AlarmReceiver.class);
 		intent.putExtra(TreatmentsDbAdapter.KEY_ROWID, id);
-		Toast.makeText(ctx, "w AlarmSchedulerze: " + id + " wyciagniete jest: " + intent.getIntExtra(TreatmentsDbAdapter.KEY_ROWID, -1), Toast.LENGTH_SHORT).show();
+//		Toast.makeText(ctx, "w AlarmSchedulerze: " + id + " wyciagniete jest: " + intent.getIntExtra(TreatmentsDbAdapter.KEY_ROWID, -1), Toast.LENGTH_SHORT).show();
 		// In reality, you would want to have a static variable for the request code instead of 192837
 		//int msgId = rand.nextInt();
 		PendingIntent sender = PendingIntent.getBroadcast(ctx, id, intent, PendingIntent.FLAG_UPDATE_CURRENT);

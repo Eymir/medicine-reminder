@@ -28,7 +28,7 @@ public class ConfirmTaking extends Activity{
 		int id = extras.getInt(TreatmentsDbAdapter.KEY_ROWID);
 		int counter = extras.getInt("counter");
 		
-		Toast.makeText(getApplicationContext(), "w ConfirmTaking id: " + id + " couter: " + counter, Toast.LENGTH_SHORT).show();
+//		Toast.makeText(getApplicationContext(), "w ConfirmTaking id: " + id + " couter: " + counter, Toast.LENGTH_SHORT).show();
 		
 		Cursor cur = TreatmentsDbAdapter.getInstance(this).fetchOne(id);
 		if (cur.getCount() != 1) return;

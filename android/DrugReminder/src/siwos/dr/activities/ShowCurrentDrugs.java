@@ -125,7 +125,7 @@ public class ShowCurrentDrugs extends Activity{
 						TreatmentsDbAdapter.getInstance(getApplicationContext()).updateActive(true, id);
 						AlarmScheduler.scheduleTreatment(getApplicationContext(), id);
 						TreatmentsDbAdapter.getInstance(getApplicationContext()).updateScheduled(true, id);
-						Toast.makeText(getApplicationContext(), "wybrano: " + id, Toast.LENGTH_SHORT).show();
+//						Toast.makeText(getApplicationContext(), "wybrano: " + id, Toast.LENGTH_SHORT).show();
 					}
 				}
 			});
