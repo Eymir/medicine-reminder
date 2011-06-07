@@ -22,7 +22,7 @@ public class DrugDescription extends Activity{
 		desc = (TextView) findViewById(R.id.drug_description_content);
 		
 		int id = getIntent().getIntExtra(MedicamentsDbAdapter.KEY_ROWID, -1);
-//		Toast.makeText(this, "wybrano: " + id, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "wybrano: " + id, Toast.LENGTH_SHORT).show();
 		
 		Cursor cur = MedicamentsDbAdapter.getInstance(this).fetchOne(id);
 		if(cur.getCount() != 0) {

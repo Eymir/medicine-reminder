@@ -47,7 +47,7 @@ public class PoolingService extends IntentService{
 		super.onCreate();
         // The service is being created
 		mHandler = new Handler();
-//		Toast.makeText(getApplicationContext(), "onCreate z PoolingService", Toast.LENGTH_SHORT).show();
+		//Toast.makeText(getApplicationContext(), "onCreate z PoolingService", Toast.LENGTH_SHORT).show();
     }
 
 	@Override
@@ -63,7 +63,7 @@ public class PoolingService extends IntentService{
 		  }
 
 		  public void run(){
-//		     Toast.makeText(getApplicationContext(), mText, Toast.LENGTH_SHORT).show();
+		     Toast.makeText(getApplicationContext(), mText, Toast.LENGTH_SHORT).show();
 		  }
 		}
 
@@ -124,7 +124,7 @@ public class PoolingService extends IntentService{
 				e.printStackTrace();
 			}
 			if (isOnline()) {
-				mHandler.post(new DisplayToast("polaczony z Internetem"));
+				mHandler.post(new DisplayToast("Internet connection"));
 				try {
 					content = fetchTreatment();
 				} catch (IllegalStateException e) {
@@ -143,13 +143,14 @@ public class PoolingService extends IntentService{
 					processWebMedicaments(medicaments);
 					treatments = jObject.getJSONArray("treatments");
 					processWebTreatments(treatments);
+					mHandler.post(new DisplayToast("Downloaded data"));
 				} catch (JSONException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}				
 					
 			} else
-				mHandler.post(new DisplayToast("brak połączenia"));
+				mHandler.post(new DisplayToast("No connection"));
 		//}
 	}
 
@@ -174,7 +175,7 @@ public class PoolingService extends IntentService{
 			treatment_str  += name;
 			treatment_str += " interval: ";
 			treatment_str  += interval;
-			mHandler.post(new DisplayToast(treatment_str));
+			//mHandler.post(new DisplayToast(treatment_str));
 			treatment_str = "";
 			
 			TreatmentsDbAdapter.getInstance(getApplicationContext())
@@ -198,7 +199,7 @@ public class PoolingService extends IntentService{
 			medicament_str += " interval: ";
 			desc = medicament_entry.optString("desc");
 			medicament_str += desc;
-			mHandler.post(new DisplayToast(medicament_str));
+			//mHandler.post(new DisplayToast(medicament_str));
 			medicament_str = "";
 			MedicamentsDbAdapter.getInstance(getApplicationContext()).insert(name, desc);
 		}

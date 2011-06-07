@@ -39,6 +39,6 @@ public class DrugsList extends ListActivity {
 		startActivity(i);
 		//setResult(Activity.RESULT_OK, i);
 		//fire another activity
-//		Toast.makeText(this, "wybrano: " + id, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this, "wybrano: " + id, Toast.LENGTH_SHORT).show();
 	}
 }

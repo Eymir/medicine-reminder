@@ -149,6 +149,10 @@ public class Main extends ListActivity {
     	final EditText idText = new EditText(this);
     	if (_dialogContent != null)
     		idText.setText(_dialogContent);
+    	else {
+    		String id = UserDbAdapter.getInstance(this).getId();
+    		idText.setText(id);
+    	}
     	idText.setId(5);
     	alert.setView(idText);    	
     	
@@ -157,7 +161,7 @@ public class Main extends ListActivity {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				UserDbAdapter.getInstance(getApplicationContext()).setId(idText.getText().toString().trim());
-//				Toast.makeText(getApplicationContext(), getString(R.string.main_your_userid) + " " + idText.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), getString(R.string.main_your_userid) + " " + idText.getText().toString().trim(), Toast.LENGTH_SHORT).show();
 			}
 		});
     	
@@ -192,7 +196,7 @@ public class Main extends ListActivity {
         if (requestCode == ADD_TREATMENT) {
             if (resultCode == RESULT_OK) {
             	int id = data.getExtras().getInt(TreatmentsDbAdapter.KEY_ROWID);
-//            	Toast.makeText(this, "dodano: " + id, Toast.LENGTH_SHORT);
+            	//Toast.makeText(this, "dodano: " + id, Toast.LENGTH_SHORT);
             	AlarmScheduler.scheduleTreatment(this, id);
             	TreatmentsDbAdapter.getInstance(this).updateScheduled(true, id);
             }
@@ -212,7 +216,7 @@ public class Main extends ListActivity {
     }
     
     private void fetch_data() {
-//    	Toast.makeText(this, "text", Toast.LENGTH_SHORT).show();
+    	//Toast.makeText(this, "text", Toast.LENGTH_SHORT).show();
     	Intent intent = new Intent(this, PoolingService.class);
     	startService(intent);
     }

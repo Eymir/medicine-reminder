@@ -12,6 +12,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 			Bundle bundle = intent.getExtras();
 		    int id = bundle.getInt(TreatmentsDbAdapter.KEY_ROWID);
 		    
-//		    Toast.makeText(context, "Alarm Receiver id: " + id, Toast.LENGTH_SHORT).show();
+		    //Toast.makeText(context, "Alarm Receiver id: " + id, Toast.LENGTH_SHORT).show();
 		    
 		    AlarmScheduler.unscheduleTreatment(ctx, id);
 		    if (TreatmentsDbAdapter.getInstance(context).takeAnotherPill(id))
@@ -54,7 +55,8 @@ public class AlarmReceiver extends BroadcastReceiver {
 		    notificationIntent.putExtra(TreatmentsDbAdapter.KEY_ROWID, id);
 		    notificationIntent.putExtra("counter ", AlarmReceiver.COUNTER++);
 		    PendingIntent contentIntent = PendingIntent.getActivity(context, COUNTER, notificationIntent, 0);
-		    notification.defaults |= Notification.DEFAULT_SOUND;
+		    //notification.defaults |= Notification.DEFAULT_SOUND;
+		    notification.sound = Uri.parse("siwoz.dr.resources.ambulance.mp3");
 		    notification.defaults |= Notification.DEFAULT_VIBRATE;
 		    notification.defaults |= Notification.DEFAULT_LIGHTS;
 		    notification.flags |= Notification.FLAG_AUTO_CANCEL;
@@ -63,7 +65,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 		    nm.notify(COUNTER, notification);
 		    
 		} catch (Exception e) {
-//		     Toast.makeText(context, "There was an error somewhere, but we still received an alarm", Toast.LENGTH_SHORT).show();
+		     //Toast.makeText(context, "There was an error somewhere, but we still received an alarm", Toast.LENGTH_SHORT).show();
 		     e.printStackTrace();
 		}
 	}

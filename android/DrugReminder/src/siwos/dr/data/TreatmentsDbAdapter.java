@@ -89,6 +89,28 @@ public class TreatmentsDbAdapter extends AppDbAdapter {
        	return mCursor;
     }
 
+    public Cursor fetchOneByWebId(long webId) throws SQLException {
+
+        Cursor mCursor =
+
+            mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+            		KEY_ID_WEB,
+        	    	KEY_START_DATE,
+        	    	KEY_PILLS,
+        	    	KEY_PILLS_TAKEN,
+        	    	KEY_FREQUENCY_ID,
+        	    	KEY_MEDICAMENT_ID,
+        	    	KEY_ACTIVE,
+        	    	KEY_SCHEDULED}, KEY_ID_WEB + "=" + webId, null,
+                    null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        
+       	return mCursor;
+    }
+
+    
     public long insert(Date date, int pills, int pills_taken, int frequency, int medicine, boolean active, boolean scheduled) {
         ContentValues initialValues = new ContentValues();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -136,6 +158,9 @@ public class TreatmentsDbAdapter extends AppDbAdapter {
     }
     
     public long insert(int id_web, String date, int pills, int pills_taken, int interval, String medicine, boolean active, boolean scheduled) {
+    	Cursor cur = fetchOneByWebId(id_web);
+    	if (cur.getCount() != 0)
+    		return -1;
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_ID_WEB, id_web);
         initialValues.put(KEY_START_DATE, date);
