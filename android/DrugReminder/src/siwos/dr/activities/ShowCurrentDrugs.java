@@ -8,7 +8,11 @@ import siwos.dr.resources.ResourcesServe;
 import siwos.dr.services.AlarmScheduler;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -24,6 +28,8 @@ import android.widget.Toast;
 
 public class ShowCurrentDrugs extends Activity{
 	
+	private BroadcastReceiver Listener = null;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -31,6 +37,21 @@ public class ShowCurrentDrugs extends Activity{
 		fillData();
 	}
 
+	@Override
+    public void onResume () {
+		super.onResume();
+		SetListener();
+	}
+
+	@Override
+	public void onPause () {
+		super.onPause();
+		if (Listener != null) {
+	            unregisterReceiver (Listener);
+	            Listener = null;
+        }
+	}
+	
 	private void addHeadline(TableLayout table) {
 		TextView tv;
 		TableRow tr = (TableRow) getLayoutInflater().inflate(R.layout.treatments_header, null);
@@ -64,7 +85,7 @@ public class ShowCurrentDrugs extends Activity{
 		final TableLayout table = (TableLayout) findViewById(R.id.treatments_table);
 	    TableRow tr; 
 	    TextView tv;
-	    final Cursor cursor = TreatmentsDbAdapter.getInstance(this).fetchAll();//fetchAllCurrent();
+	    final Cursor cursor = TreatmentsDbAdapter.getInstance(this).fetchAllCurrent();
 		startManagingCursor(cursor);
 		cursor.moveToFirst();
 		table.removeAllViews();
@@ -123,7 +144,7 @@ public class ShowCurrentDrugs extends Activity{
 						confirmDisactivation(id);
 					} else {
 						TreatmentsDbAdapter.getInstance(getApplicationContext()).updateActive(true, id);
-						AlarmScheduler.scheduleTreatment(getApplicationContext(), id);
+						AlarmScheduler.scheduleTreatment(getApplicationContext(), id, AlarmScheduler.TYPE_CONFIRMATION);
 						TreatmentsDbAdapter.getInstance(getApplicationContext()).updateScheduled(true, id);
 						//Toast.makeText(getApplicationContext(), "wybrano: " + id, Toast.LENGTH_SHORT).show();
 					}
@@ -163,5 +184,26 @@ public class ShowCurrentDrugs extends Activity{
     	    	
     	alert.show();
 
+	}
+	
+	protected void SetListener () {
+
+        Listener = new BroadcastReceiver() {
+
+			@Override
+			public void onReceive(Context ctx, Intent intent) {
+				String action = intent.getAction();
+                if (action.equals(ConfirmTaking.RELOAD_DATA)) {
+                	fillData();
+                }
+				
+			}
+        
+        };
+
+        IntentFilter filter = new IntentFilter ();
+        filter.setPriority (1);
+        filter.addAction  (ConfirmTaking.RELOAD_DATA);
+        registerReceiver  (Listener, filter);
 	}
 }

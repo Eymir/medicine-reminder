@@ -88,6 +88,27 @@ public class TreatmentsDbAdapter extends AppDbAdapter {
         
        	return mCursor;
     }
+    
+    public Cursor fetchOneActive(long rowId) throws SQLException {
+
+        Cursor mCursor =
+
+            mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
+            		KEY_ID_WEB,
+        	    	KEY_START_DATE,
+        	    	KEY_PILLS,
+        	    	KEY_PILLS_TAKEN,
+        	    	KEY_FREQUENCY_ID,
+        	    	KEY_MEDICAMENT_ID,
+        	    	KEY_ACTIVE,
+        	    	KEY_SCHEDULED}, KEY_ROWID + "=" + rowId + " AND " + KEY_PILLS_TAKEN + " <= " + KEY_PILLS, null,
+                    null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        
+       	return mCursor;
+    }
 
     public Cursor fetchOneByWebId(long webId) throws SQLException {
 
@@ -211,7 +232,7 @@ public class TreatmentsDbAdapter extends AppDbAdapter {
         	    	KEY_FREQUENCY_ID,
         	    	KEY_MEDICAMENT_ID,
         	    	KEY_ACTIVE,
-        	    	KEY_SCHEDULED}, KEY_ROWID + "=" + id + " AND " + KEY_PILLS_TAKEN + " + 1 <= " + KEY_PILLS, null,
+        	    	KEY_SCHEDULED}, KEY_ROWID + "=" + id + " AND " + KEY_PILLS_TAKEN + " < " + KEY_PILLS, null,
                     null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();

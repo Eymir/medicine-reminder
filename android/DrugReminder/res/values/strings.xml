@@ -13,8 +13,8 @@
     <string name="main_drugs_you_take_desc">You can display here all drugs you recently take</string>
     <string name="main_about_drugs">Drugs Information</string>
     <string name="main_about_drugs_desc">Brief information about drugs you take. Its relations and consequences</string>
-    <string name="main_history">Drugs history</string>
-    <string name="main_history_desc">Show all history of drugs taken</string>
+    <string name="main_archive">Drugs archive</string>
+    <string name="main_archive_desc">Show history of taken drugs</string>
 	<string name="main_fetch_web_data">Download treatments</string>
 	<string name="main_fetch_web_data_desc">You can download treatments from Internet immediately</string>
     <string name="main_treatment_added">Treatment correctly added</string>
@@ -26,6 +26,9 @@
 	
 	<string name="notify_title">Take a medicine!</string>
 	<string name="notify_text">It is proper time you should take a medicine.</string>
+	
+	<string name="notify_remind_title">Take a medicine!</string>
+	<string name="notify_remind_text">You have forgotten to take a medicine!</string>
 	
 	<string name="new_treatment_select_start_date">Select beginning date:</string>
 	<string name="new_treatment_select_end_date">Select end date:</string>
@@ -40,6 +43,8 @@
 	
 	<string name="show_curr_drugs_activity_label">Show current drugs</string>
 	
+	<string name="show_archive_activity_label">Show taken drugs archive</string>
+	
 	<string name="frequency_once_daily">Once daily</string>
 	<string name="frequency_twice_daily">Twice daily</string>
 	<string name="frequency_tree_times_daily">Tree times a day</string>
@@ -52,6 +57,10 @@
 	<string name="confirm_taking_confirm_btn">Confirm</string>
 	<string name="confirm_taking_hours">hour(s)</string>
 	<string name="confirm_taking_activity_label">Confirm taking medicine</string>
+
+	<string name="remind_taking_activity_label">Remind about forgotten medicine</string>
+	<string name="remind_taking_label">You have forgotten to take a medicine: </string>
+	<string name="remind_taking_label2">Take it as soon as possible!</string>
 	
 	<string name="drugs_list_activity_label">List of Medicaments</string>
 	

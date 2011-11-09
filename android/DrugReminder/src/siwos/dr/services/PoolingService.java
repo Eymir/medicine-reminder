@@ -212,7 +212,7 @@ public class PoolingService extends IntentService{
 		t_cur.moveToFirst();
 		while(!t_cur.isAfterLast()) {
 			id = t_cur.getInt(t_cur.getColumnIndex(TreatmentsDbAdapter.KEY_ROWID));
-			AlarmScheduler.scheduleTreatment(getApplicationContext(), id);
+			AlarmScheduler.scheduleTreatment(getApplicationContext(), id, AlarmScheduler.TYPE_CONFIRMATION);
 			TreatmentsDbAdapter.getInstance(getApplicationContext()).updateScheduled(true, id);
 			t_cur.moveToNext();
 		}

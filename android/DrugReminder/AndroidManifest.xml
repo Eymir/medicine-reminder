@@ -17,10 +17,21 @@
         </activity>
         <activity android:name="siwos.dr.activities.AddNewTreatment" android:label="@string/add_new_treatment_activity_label"/>
         <activity android:name="siwos.dr.activities.ShowCurrentDrugs" android:label="@string/show_curr_drugs_activity_label"/>
+        <activity android:name="siwos.dr.activities.TreatmentsArchive" android:label="@string/show_archive_activity_label"/>
         <activity android:name="siwos.dr.activities.ConfirmTaking" android:label="@string/confirm_taking_activity_label"/>
+        <activity android:name="siwos.dr.activities.RemindTaking" android:label="@string/remind_taking_activity_label"/>
         <activity android:name="siwos.dr.activities.DrugsList" android:label="@string/drugs_list_activity_label"/>
         <activity android:name="siwos.dr.activities.DrugDescription" android:label="@string/drug_description_activity_label"/>
 		<receiver  android:process=":remote" android:name="siwos.dr.services.AlarmReceiver" />
 		<service android:name="siwos.dr.services.PoolingService"/>
+		
+		<receiver android:name="siwos.dr.widget.DrugAppWidgetProvider" >
+		    <intent-filter>
+		        <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+		    </intent-filter>
+		    <meta-data android:name="android.appwidget.provider"
+		               android:resource="@xml/drug_appwidget_info" />
+		</receiver>
+		
     </application>
 </manifest>

@@ -8,19 +8,19 @@
       >
 
 	<TextView
-		android:id="@+id/treatment_archive_row_medicament_name" 
+		android:id="@+id/treatment_archive_header_medicament_name" 
 		android:padding="3dip"
 		android:maxLines="1"
 		android:maxWidth="100dip" 
 		/>
 	<TextView
-		android:id="@+id/treatment_archive_row_treatment_frequency"
+		android:id="@+id/treatment_archive_header_treatment_frequency"
 		android:padding="3dip"
 		android:maxLines="1"
 		android:maxWidth="100dip" 
 		 />
 	<TextView
-		android:id="@+id/treatment_archive_row_start_date"
+		android:id="@+id/treatment_archive_header_start_date"
 		android:padding="3dip"
 		android:maxLines="1"
 		android:maxWidth="100dip" 
